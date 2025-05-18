@@ -2,7 +2,7 @@ import express from 'express';
 import { Express, Request, Response } from 'express';
 
 const app: Express = express();
-const port: number = 3000;
+const port = process.env.PORT;
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Starting Server for Weather Box");
