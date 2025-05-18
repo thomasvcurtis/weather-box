@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "backend": "tsx --env-file=.env lib/index.ts",
+    "backend": "tsx --env-file=.env lib/server.ts",
     "build": "tsc",
     "lint": "eslint .",
     "preview": "vite preview",
