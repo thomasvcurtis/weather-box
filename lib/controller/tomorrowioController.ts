@@ -1,11 +1,11 @@
-import { getRealtimeWeather } from "../lib/service/tomorrowioService";
+import { getRealtimeWeather } from "../service/tomorrowioService";
 import { Request, Response } from "express";
 export async function realtimeWeather(req: Request, res: Response) {
-  const { location} = req.query;
+  const { location } = req.query;
 
-  if (!location || typeof location !== 'string') {
-    return res.status(400).json({ 
-      message: 'Location is required' 
+  if (!location || typeof location !== "string") {
+    return res.status(400).json({
+      message: "Location is required",
     });
   }
 
