@@ -1,6 +1,6 @@
 import { getRealtimeWeather } from "../service/tomorrowioService";
-import { Request, Response } from "express";
-export async function realtimeWeather(req: Request, res: Response) {
+
+export async function realtimeWeather(req, res) {
   const { location } = req.query;
 
   if (!location || typeof location !== "string") {
