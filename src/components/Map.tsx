@@ -1,7 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import mapboxgl, { Map, LngLatLike } from "mapbox-gl";
 
-
 const INITIAL_CENTER: [number, number] = [-83.6448, 41.3703];
 const INITIAL_ZOOM = 10.12;
 
@@ -35,13 +34,10 @@ export default function MapBox() {
       mapRef.current?.remove();
     };
   }, []);
+
   return (
     <>
-      <div className="sidebar">
-        Longitude: {center[0].toFixed(4)} | Latitude: {center[1].toFixed(4)} |
-        Zoom: {zoom.toFixed(2)}
-      </div>
-      <div id="map-container" ref={mapContainerRef} />
+      <div className="h-full w-full absolute" ref={mapContainerRef} />
     </>
   );
 }

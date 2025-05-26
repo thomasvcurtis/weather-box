@@ -1,8 +1,11 @@
 import MapBox from "./components/Map";
-import "./App.css";
 
 function App() {
-  return <MapBox />;
+  return (
+    <>
+      <h1 className="text-center"> Weather Box </h1>
+      <MapBox />;
+    </>
+  );
 }
-
 export default App;
