@@ -1,15 +1,15 @@
 import { useRef, useEffect, useState } from "react";
 import mapboxgl, { Map, LngLatLike } from "mapbox-gl";
-
-const INITIAL_CENTER: [number, number] = [-83.6448, 41.3703];
-const INITIAL_ZOOM = 10.12;
+import { useAtom } from "jotai";
+import { MapZoom, MapCoordinate } from "../atoms/MapboxState";
 
 export default function MapBox() {
   const mapRef = useRef<Map | null>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
-
-  const [center, setCenter] = useState<[number, number]>(INITIAL_CENTER);
-  const [zoom, setZoom] = useState<number>(INITIAL_ZOOM);
+  
+  const [coordinates, setCoordinates] = useAtom(MapCoordinate);
+  const [center, setCenter] = useState<[number, number]>(coordinates);
+  const [zoom, setZoom] = useAtom(MapZoom);
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
@@ -26,7 +26,9 @@ export default function MapBox() {
       const mapCenter = mapRef.current.getCenter();
       const mapZoom = mapRef.current.getZoom();
 
+      // Update both local and global state
       setCenter([mapCenter.lng, mapCenter.lat]);
+      setCoordinates([mapCenter.lng, mapCenter.lat]);
       setZoom(mapZoom);
     });
 
@@ -35,9 +37,5 @@ export default function MapBox() {
     };
   }, []);
 
-  return (
-    <>
-      <div className="h-full w-full absolute" ref={mapContainerRef} />
-    </>
-  );
+  return <div className="h-full" ref={mapContainerRef} />;
 }
