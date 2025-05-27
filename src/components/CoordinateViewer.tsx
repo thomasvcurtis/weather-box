@@ -5,7 +5,7 @@ export default function CoordinateViewer() {
   const [coordinates] = useAtom(MapCoordinate);
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4">
+    <div className="w-full h-full bg-white rounded-lg shadow-md p-4">
       <div className="flex flex-col gap-2">
         <div>
           <span className="font-medium">Longitude: </span>

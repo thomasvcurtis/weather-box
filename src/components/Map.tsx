@@ -37,5 +37,7 @@ export default function MapBox() {
     };
   }, []);
 
-  return <div className="h-full" ref={mapContainerRef} />;
+  return (
+    <div className="w-full h-full" ref={mapContainerRef} />
+  );
 }
