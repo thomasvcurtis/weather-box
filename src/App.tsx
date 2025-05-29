@@ -1,5 +1,5 @@
 import MapBox from "./components/Map";
-import CoordinateViewer from "./components/CoordinateViewer";
+import WeatherDisplay from "./components/WeatherDisplay";
 
 function App() {
   return (
@@ -9,8 +9,8 @@ function App() {
         <div className="w-3/4 h-[calc(100vh-8rem)] border-2 rounded-md">
           <MapBox />
         </div>
-        <div className="w-1/2 h-full border-2 rounded-md">
-          <CoordinateViewer />
+        <div className="w-1/4 h-[calc(100vh-8rem)] border-2 rounded-md">
+          <WeatherDisplay />
         </div>
       </div>
     </div>

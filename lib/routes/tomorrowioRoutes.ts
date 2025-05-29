@@ -3,7 +3,6 @@ import { realtimeWeather } from '../controller/tomorrowioController';
 
 const router = express.Router();
 
-//This should be 'realtime'
-router.get('/', realtimeWeather);
+router.get('/:coordinates', realtimeWeather);
 
 export default router;
